@@ -177,7 +177,9 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\down.png" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\Images\up.png" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
@@ -206,9 +208,13 @@
     <Compile Include="Models\EditNoteModel.cs" />
     <Compile Include="Models\EditUserModel.cs" />
     <Compile Include="Models\CreateUserModel.cs" />
+    <Compile Include="Models\FetchOptions.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\NotesFilter.cs" />
     <Compile Include="Models\NoteViewModel.cs" />
     <Compile Include="Models\NotesListViewModel.cs" />
+    <Compile Include="Models\RangeDateTime.cs" />
+    <Compile Include="Models\SortLinkModel.cs" />
     <Compile Include="Models\UserListViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -233,6 +239,8 @@
     <Content Include="Views\Notes\ViewNote.cshtml" />
     <Content Include="Views\Notes\Edit.cshtml" />
     <Content Include="Views\Notes\Create.cshtml" />
+    <Content Include="Views\Shared\SortLink.cshtml" />
+    <Content Include="Views\Notes\Filter.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

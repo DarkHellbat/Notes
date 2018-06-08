@@ -13,6 +13,6 @@ namespace batNotes.Models
         
         public DateTime Created { get; set; }
         public DateTime Changed { get; set; }
-        // public virtual File File { get; set; }
+        public virtual File File { get; set; }
     }
 }

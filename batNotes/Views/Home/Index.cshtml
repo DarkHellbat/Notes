@@ -1,16 +1,19 @@
-﻿
+﻿@using batNotes.HtmlExtensions
+@using batNotes.Controllers
+@using batNotes.Models.Repositories
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Начальная страница";
 }
 
-<h2>Home</h2>
+<h2>Начальная страница</h2>
 @Html.ValidationSummary()
-<div>
-    @Html.ActionLink("Войти", "Login", "Account")
-</div>
-<div>
+@*@if (!Html.GetCurrentUser().Equals(null))
+{*@
+    @*@Html.ActionLink("Войти", "Login", "Account")*@
+
+
     @Html.ActionLink("Выйти", "LogOff", "Account")
-</div>
+@*@{    var c = new UserMethods(ISession session);}*@
 <div>
     @Html.ActionLink("Список пользователей", "Index", "User")
 </div>

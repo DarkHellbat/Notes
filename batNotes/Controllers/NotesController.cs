@@ -18,7 +18,7 @@ namespace batNotes.Controllers
         }
 
         // GET: Notes
-        public ActionResult ShowNotes()
+        public ActionResult ShowNotes(NotesFilter filter, FetchOptions options)
         {
             var model = new NotesListViewModel
             {

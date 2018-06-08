@@ -1,4 +1,5 @@
-﻿using batNotes.Models.Repositories;
+﻿using batNotes.Models;
+using batNotes.Models.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace batNotes.Controllers
         // GET: Home
         public ActionResult Index()
         {
+           // user = CurrentUser;
             return View();
         }
     }

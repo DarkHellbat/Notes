@@ -8,6 +8,7 @@ namespace batNotes.Models
 {
     public class NotesListViewModel
     {
+       // public User routevalue { get; set; }
         public IList<Note> Notes { get; set; }
         public NotesListViewModel()
         {

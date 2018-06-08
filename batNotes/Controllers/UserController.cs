@@ -45,7 +45,10 @@ namespace batNotes.Controllers
                         ModelState.AddModelError("", er);
                     }
                 }
+                if(CurrentUser!=null)
                 return RedirectToAction("Index", "Home");
+                else
+                    return RedirectToAction("Login", "Account");
             }
             else
             {

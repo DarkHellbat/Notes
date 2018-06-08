@@ -49,7 +49,7 @@ namespace batNotes.Controllers
         public ActionResult LogOff()
         {
             SignInManager.SignOut();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
         public ActionResult CreateUser(string Login, string Password)

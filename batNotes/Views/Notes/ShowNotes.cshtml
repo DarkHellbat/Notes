@@ -1,5 +1,7 @@
 ﻿@model batNotes.Models.NotesListViewModel
-    @using batNotes.Models.Repositories
+    @using batNotes.HtmlExtensions
+@using batNotes.Models
+@using batNotes.Controllers
 @{
     ViewBag.Title = "ShowNotes";
 }
@@ -8,10 +10,13 @@
 <table border="1">
     <tr>
        
-        <td>Название</td>
+        <td>@Html.SortLink("Название", "Name", "ShowNotes", "Notes", new RouteValueDictionary { { "id", Model.Notes[0].Author.Id} })
+</td>
        @*<td>Текст</td>*@
-         <td>Дата создания</td>
-        <td>Дата изменения</td>
+         <td>@Html.SortLink("Дата создания", "Created", "ShowNotes", "Notes", new RouteValueDictionary { { "id", Model.Notes[0].Author.Id } })
+</td>
+        <td>@Html.SortLink("Дата изменения", "Changed", "ShowNotes", "Notes", new RouteValueDictionary { { "id", Model.Notes[0].Author.Id } })
+</td>
         <td>@Html.ActionLink("+ заметка", "Create", "Notes")</td>
     </tr>
     
