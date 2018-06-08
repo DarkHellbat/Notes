@@ -12,17 +12,21 @@
        @*<td>Текст</td>*@
          <td>Дата создания</td>
         <td>Дата изменения</td>
+        <td>@Html.ActionLink("+ заметка", "Create", "Notes")</td>
     </tr>
     
-    @foreach(var n in Model.Notes.Where(nt=>nt.Author==))
+    @foreach(var n in Model.Notes)
     {
         <tr>
             <td>@n.Name</td>
             @*<td>@n.Text</td>*@
             <td>@n.Created</td>
             <td>@n.Changed</td>
-            <td>@Html.ActionLink("Просмотреть","ViewNote","Notes", new { id=n.NoteId},null)</td>
+            <td>@Html.ActionLink("Просмотреть","ViewNote","Notes", new { id=n.NoteId}, null)</td>
         </tr>
     }
+ 
+
 </table>
 
+@Html.ActionLink("Назад", "Index", "Home")

@@ -203,6 +203,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Extensions\HtmlExtensions.cs" />
+    <Compile Include="Models\EditNoteModel.cs" />
     <Compile Include="Models\EditUserModel.cs" />
     <Compile Include="Models\CreateUserModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
@@ -229,6 +230,9 @@
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\User.cshtml" />
     <Content Include="Views\Notes\ShowNotes.cshtml" />
+    <Content Include="Views\Notes\ViewNote.cshtml" />
+    <Content Include="Views\Notes\Edit.cshtml" />
+    <Content Include="Views\Notes\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

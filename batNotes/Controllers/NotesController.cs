@@ -22,7 +22,7 @@ namespace batNotes.Controllers
         {
             var model = new NotesListViewModel
             {
-                Notes = notesMethods.GetAll()
+                Notes = notesMethods.GetUsersNotes(CurrentUser)
         };
             return View(model);
         }
@@ -30,12 +30,55 @@ namespace batNotes.Controllers
         {
             var note = notesMethods.Load(id);
             return View(new NoteViewModel
-            {
+            {NoteId = note.NoteId,
                 Name = note.Name,
                 Text = note.Text,
                 Changed = note.Changed,
                 Created=note.Changed
             });
+        }
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(EditNoteModel model)
+        {
+             Note newNote = new Note
+                {
+                    Name = model.Name,
+                    Text = model.Text,
+                    Created = DateTime.Now,
+                    Changed = DateTime.Now,
+                    Author = CurrentUser
+                };
+
+                notesMethods.Save(newNote);
+
+                return RedirectToAction("ShowNotes", "Notes");
+        }
+ 
+        public ActionResult Edit(long id)
+        {
+            var note = notesMethods.Load(id);
+            var model = new EditNoteModel
+            { NoteId = note.NoteId,
+                Name = note.Name,
+                Text = note.Text,
+                Changed = note.Changed,
+                Created = note.Created
+            };
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult Edit(EditNoteModel model)
+        {
+            var note = notesMethods.Load(model.NoteId);
+            note.Name = model.Name;
+            note.Text = model.Text;
+            note.Changed = DateTime.Now;
+            notesMethods.Save(note);
+            return RedirectToAction("ShowNotes", "Notes");
         }
     }
 }

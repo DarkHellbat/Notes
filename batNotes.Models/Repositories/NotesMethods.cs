@@ -1,4 +1,5 @@
 ﻿using NHibernate;
+using NHibernate.Criterion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,9 +20,13 @@ namespace batNotes.Models.Repositories
         {
             return session.CreateCriteria<Note>().List<Note>().ToList();
         }
-        public List<Note> GetUsersNotes()
+        public IList<Note> GetUsersNotes(User user)
         {
-            session.CreateCriteria<Note>().CreateCriteria();
+            var crit = session.CreateCriteria<Note>();
+
+            crit.Add(Restrictions.Eq("Author.Id", user.Id));
+
+            return crit.List<Note>();
 
         }
     }

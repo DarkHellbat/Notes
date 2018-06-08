@@ -36,5 +36,6 @@ namespace batNotes.Controllers
                 return userRepository.GetCurrentUser(User);
             }
         }
+       // public Note CurrentNote { get { return} }
     }
 }

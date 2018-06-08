@@ -8,8 +8,7 @@ namespace batNotes.Models
 {
     public class NotesListViewModel
     {
-        public List<Note> Notes { get; set; }
-        public User current =
+        public IList<Note> Notes { get; set; }
         public NotesListViewModel()
         {
             Notes = new List<Note>();

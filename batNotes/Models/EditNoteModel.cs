@@ -5,14 +5,14 @@ using System.Web;
 
 namespace batNotes.Models
 {
-    public class NoteViewModel
+    public class EditNoteModel
     {
         public long NoteId { get; set; }
-        public string Text { get; set; }
         public string Name { get; set; }
+        public string Text { get; set; }
+        
         public DateTime Created { get; set; }
         public DateTime Changed { get; set; }
-      //  public virtual User Author { get; set; }
-       // public virtual File File { get; set; }
+        // public virtual File File { get; set; }
     }
 }
