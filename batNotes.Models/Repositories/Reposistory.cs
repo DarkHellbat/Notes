@@ -1,9 +1,11 @@
 ﻿using NHibernate;
+using NHibernate.Criterion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 
 namespace batNotes.Models.Repositories
 {
@@ -21,6 +23,18 @@ namespace batNotes.Models.Repositories
         {
             return session.Load<T>(id);
         }
+
+
+        protected virtual void SetFetchOptions(ICriteria crit, FetchOptions options)
+        {
+            if (!string.IsNullOrEmpty(options.SortExpression))
+            {
+                crit.AddOrder(options.SortDirection == SortDirection.Ascending ?
+                    Order.Asc(options.SortExpression) :
+                    Order.Desc(options.SortExpression));
+            }
+        }
+
         public virtual IList<T> GetAll()
         {
             return session.CreateCriteria<T>().List<T>();

@@ -1,5 +1,6 @@
 ﻿using batNotes.Models;
 using batNotes.Models.Repositories;
+using batNotes.Models.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace batNotes.Controllers
         {
             var model = new NotesListViewModel
             {
-                Notes = notesMethods.GetUsersNotes(CurrentUser)
+                Notes = notesMethods.GetUsersNotes(CurrentUser, filter, options)
         };
             return View(model);
         }
@@ -44,15 +45,22 @@ namespace batNotes.Controllers
         [HttpPost]
         public ActionResult Create(EditNoteModel model)
         {
+            File file = new File()
+            {
+                Name = model.File.FileName,
+                Content = model.File.InputStream.ToByteArray()
+            };
              Note newNote = new Note
                 {
                     Name = model.Name,
                     Text = model.Text,
                     Created = DateTime.Now,
                     Changed = DateTime.Now,
-                    Author = CurrentUser
+                    Author = CurrentUser,
+                    File = file
                 };
-
+         
+           
                 notesMethods.Save(newNote);
 
                 return RedirectToAction("ShowNotes", "Notes");

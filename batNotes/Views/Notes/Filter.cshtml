@@ -1,5 +1,5 @@
 ﻿@model batNotes.Models.NotesFilter
-@using (Html.BeginForm("Index", "Folder", FormMethod.Get))
+@using (Html.BeginForm("ShowNotes", "Notes", FormMethod.Get))
 {
     <div>
         Название: @Html.EditorFor(m => m.Name)

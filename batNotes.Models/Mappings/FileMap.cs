@@ -12,10 +12,8 @@ namespace batNotes.Models.Mappings
         public FileMap()
         {
             Id(f => f.FileId).GeneratedBy.Identity();
-            Map(f => f.Path).Length(100);
-            Map(f => f.Size);
-            Map(f => f.Type);
-
+            Map(f => f.Name).Length(100);
+           
         }
     }
 }
